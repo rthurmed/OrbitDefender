@@ -22,6 +22,7 @@ health_points = 4
 
 [node name="Gun1" parent="." instance=ExtResource( 2 )]
 position = Vector2( -3.5, -8 )
+shooting = true
 dps = 0.2
 
 [node name="Gun2" parent="." instance=ExtResource( 2 )]

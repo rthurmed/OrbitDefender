@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 17.0294
 
-[node name="Planet" type="Area2D" groups=["friendly", "planet"]]
+[node name="Planet" type="KinematicBody2D" groups=["friendly", "planet"]]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -16,3 +16,4 @@ shape = SubResource( 1 )
 
 [node name="HealthModule" parent="." instance=ExtResource( 2 )]
 position = Vector2( -11, 11 )
+health_points = 100

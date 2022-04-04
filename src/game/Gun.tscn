@@ -10,6 +10,7 @@ cast_to = Vector2( 0, -140 )
 collide_with_areas = true
 
 [node name="Bullets" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 16
 lifetime = 0.4
 local_coords = false
