@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemy", "ship"]]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -2 )

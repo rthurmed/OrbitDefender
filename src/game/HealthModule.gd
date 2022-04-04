@@ -36,6 +36,10 @@ func is_alive():
 	return health_points > 0
 
 
+func kill(pos):
+	hit(health_points, pos)
+
+
 func hit(amount, pos):
 	# Update values
 	health_points -= amount
