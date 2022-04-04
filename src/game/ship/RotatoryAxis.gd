@@ -25,5 +25,5 @@ func _process(delta):
 		emit_signal("full360")
 
 
-func _on_Spaceship_inverting(_inverted):
+func _on_Ship_inverting(_inverted):
 	target_speed = target_speed * -1
