@@ -31,3 +31,9 @@ custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 50.0
 percent_visible = false
+
+[node name="ExplosionDelay" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="ExplosionDelay" to="." method="_on_ExplosionDelay_timeout"]

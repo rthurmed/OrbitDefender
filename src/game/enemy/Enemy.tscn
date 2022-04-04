@@ -19,6 +19,7 @@ shape = SubResource( 1 )
 [node name="HealthModule" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 14 )
 health_points = 4
+main_node_path = NodePath("..")
 
 [node name="Gun1" parent="." instance=ExtResource( 2 )]
 position = Vector2( -3.5, -8 )
@@ -27,4 +28,8 @@ dps = 0.2
 
 [node name="Gun2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3.5, -8 )
+shooting = true
 dps = 0.2
+
+[connection signal="completed_death_explosion" from="HealthModule" to="." method="_on_HealthModule_completed_death_explosion"]
+[connection signal="last_explosion_peak" from="HealthModule" to="." method="_on_HealthModule_last_explosion_peak"]

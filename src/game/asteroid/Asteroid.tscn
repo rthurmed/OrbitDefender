@@ -22,3 +22,4 @@ cast_to = Vector2( 50, 0 )
 [node name="HealthModule" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 13 )
 health_points = 2
+main_node_path = NodePath("..")

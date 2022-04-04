@@ -17,3 +17,4 @@ shape = SubResource( 1 )
 [node name="HealthModule" parent="." instance=ExtResource( 2 )]
 position = Vector2( -11, 11 )
 health_points = 100
+main_node_path = NodePath("..")
