@@ -33,7 +33,7 @@ func spawn():
 	var enemy = Enemy.instance()
 	enemy.global_position = start_position
 	enemy.destination = shoot_position
-	get_tree().root.call_deferred("add_child", enemy)
+	get_tree().current_scene.call_deferred("add_child", enemy)
 
 
 # TODO: Move this to some kind of module where i could control the speed

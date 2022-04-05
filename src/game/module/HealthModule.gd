@@ -56,7 +56,7 @@ func hit(amount, pos):
 			rand_range(-EXPLOSION_POS_NOISE, EXPLOSION_POS_NOISE)
 		)
 		
-		get_tree().root.add_child(explosion)
+		get_tree().current_scene.add_child(explosion)
 		
 		can_show_explosion = false
 		explosion_delay.start()
