@@ -11,6 +11,7 @@ radius = 8.0
 
 [node name="Asteroid" type="Area2D"]
 script = ExtResource( 2 )
+move_duration = 16
 
 [node name="VisualInstance" type="Node2D" parent="."]
 
@@ -36,4 +37,5 @@ health_module_path = NodePath("../HealthModule")
 
 [node name="AutoMoveModule" parent="." instance=ExtResource( 5 )]
 node_path = NodePath("..")
-duration = 8
+
+[connection signal="completed" from="AutoMoveModule" to="." method="_on_AutoMoveModule_completed"]

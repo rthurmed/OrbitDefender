@@ -11,7 +11,8 @@ radius = 14.0
 
 [node name="AsteroidLarge" type="Area2D"]
 script = ExtResource( 2 )
-move_duration = 16
+move_duration = 32
+rotate_speed = 1
 
 [node name="VisualInstance" type="Node2D" parent="."]
 

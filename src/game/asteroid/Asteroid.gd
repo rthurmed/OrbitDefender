@@ -21,3 +21,8 @@ func _process(delta):
 		visual_instance.rotation + deg2rad(30),
 		delta * rotate_speed
 	)
+
+
+func _on_AutoMoveModule_completed():
+	# If didnt hit anything
+	queue_free()
