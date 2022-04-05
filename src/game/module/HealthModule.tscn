@@ -2,23 +2,9 @@
 
 [ext_resource path="res://src/game/module/HealthModule.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/enemy_death.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/ui/progress_fg.tres" type="StyleBox" id=3]
 [ext_resource path="res://assets/sfx/enemy_hit.wav" type="AudioStream" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0, 0, 0, 0 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 1, 1, 1, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0, 0, 0, 1 )
+[ext_resource path="res://assets/ui/progress_bg.tres" type="StyleBox" id=5]
 
 [node name="HealthModule" type="Node2D" groups=["health_module"]]
 script = ExtResource( 1 )
@@ -31,8 +17,8 @@ margin_top = -4.0
 margin_right = 55.0
 margin_bottom = 10.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = ExtResource( 3 )
+custom_styles/bg = ExtResource( 5 )
 value = 50.0
 percent_visible = false
 
