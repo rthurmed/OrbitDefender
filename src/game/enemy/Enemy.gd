@@ -32,5 +32,5 @@ func _process(delta):
 func _on_AutoMoveModule_completed():
 	attacking = true
 	targetting_module.relocate()
-	gun1.shooting = true
-	gun2.shooting = true
+	gun1.set_shooting(true)
+	gun2.set_shooting(true)

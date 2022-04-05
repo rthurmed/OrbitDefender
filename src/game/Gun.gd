@@ -6,6 +6,11 @@ export var dps = 1.0
 
 onready var bullets = $Bullets
 onready var raycast = $RayCast
+onready var shoot_audio = $Audio/Shoot
+
+
+func _ready():
+	shoot_audio.seek(shoot_audio.stream.get_length() * randf())
 
 
 func _process(delta):
@@ -21,3 +26,8 @@ func _process(delta):
 		var health_module = collider.find_node("HealthModule")
 		if health_module:
 			health_module.hit(dps * delta, collistion_point)
+
+
+func set_shooting(s):
+	shooting = s
+	shoot_audio.playing = shooting

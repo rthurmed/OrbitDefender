@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/game/module/HealthModule.gd" type="Script" id=1]
+[ext_resource path="res://assets/sfx/enemy_death.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sfx/enemy_hit.wav" type="AudioStream" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -20,6 +22,8 @@ border_color = Color( 0, 0, 0, 1 )
 
 [node name="HealthModule" type="Node2D" groups=["health_module"]]
 script = ExtResource( 1 )
+sound_hit = ExtResource( 4 )
+sound_death = ExtResource( 2 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = -3.0
@@ -36,4 +40,12 @@ percent_visible = false
 wait_time = 0.4
 one_shot = true
 
+[node name="Audio2D" type="Node2D" parent="."]
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Audio2D"]
+volume_db = -8.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Audio2D"]
+
+[connection signal="died" from="." to="." method="_on_HealthModule_died"]
 [connection signal="timeout" from="ExplosionDelay" to="." method="_on_ExplosionDelay_timeout"]

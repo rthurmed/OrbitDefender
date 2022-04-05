@@ -17,12 +17,15 @@ signal inverting(inverted)
 
 # TODO: Implement bombs
 # TODO: Implement ammo
-# TODO: Implement damages
 
 
 func _process(delta):
 	# Shooting logic
-	gun.shooting = Input.is_action_pressed("shoot")
+	if Input.is_action_just_pressed("shoot"):
+		gun.set_shooting(true)
+	
+	if Input.is_action_just_released("shoot"):
+		gun.set_shooting(false)
 	
 	# Switch between clockwise and counter-clockwise
 	if (
