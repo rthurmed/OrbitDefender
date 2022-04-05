@@ -78,7 +78,7 @@ func hit(amount, pos):
 		emit_signal("died")
 		
 		explosion.notify_explosion_max = true
-		explosion.connect("explosion_max", self, "_on_Last_Explosion_explosion_peak")
+		explosion.connect("explosion_max", self, "_on_Last_Explosion_explosion_max")
 		explosion.connect("ended", self, "_on_Last_Explosion_ended")
 		
 		has_set_last_explosion = true
@@ -88,12 +88,13 @@ func _on_Last_Explosion_explosion_max():
 	emit_signal("last_explosion_peak")
 	if not override_death and has_main_node:
 		main_node.visible = false
+		if not override_death and has_main_node:
+			main_node.queue_free()
 
 
 func _on_Last_Explosion_ended():
+	# Unreacheable
 	emit_signal("completed_death_explosion")
-	if not override_death and has_main_node:
-		main_node.queue_free()
 
 
 func _on_ExplosionDelay_timeout():
