@@ -77,6 +77,7 @@ func hit(amount, pos):
 	if going_to_die and not has_set_last_explosion:
 		emit_signal("died")
 		
+		explosion.notify_explosion_max = true
 		explosion.connect("explosion_max", self, "_on_Last_Explosion_explosion_peak")
 		explosion.connect("ended", self, "_on_Last_Explosion_ended")
 		
