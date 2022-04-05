@@ -31,7 +31,6 @@ health_points = 6
 main_node_path = NodePath("..")
 
 [node name="ImpactAttackModule" parent="." instance=ExtResource( 4 )]
-impact_damage = 4
 area_node_path = NodePath("..")
 collision_node_path = NodePath("../CollisionShape2D")
 health_module_path = NodePath("../HealthModule")
