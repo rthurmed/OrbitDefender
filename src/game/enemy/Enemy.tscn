@@ -22,7 +22,7 @@ shape = SubResource( 1 )
 
 [node name="HealthModule" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 14 )
-health_points = 4
+health_points = 6
 main_node_path = NodePath("..")
 
 [node name="AutoMoveModule" parent="." instance=ExtResource( 5 )]

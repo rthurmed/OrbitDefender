@@ -12,7 +12,7 @@ collide_with_areas = true
 [node name="Bullets" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 16
-lifetime = 0.4
+lifetime = 0.25
 local_coords = false
 direction = Vector2( 0, -1 )
 spread = 5.0

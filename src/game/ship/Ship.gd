@@ -2,8 +2,8 @@ extends Node2D
 
 
 export var min_altitude = 32
-export var max_altitude = 128
-export var v_move_speed = 20
+export var max_altitude = 96
+export var v_move_speed = 48
 
 onready var animation = $RotatoryAxis/Spaceship/AnimationPlayer
 onready var visual_instance = $RotatoryAxis/Spaceship/VisualInstance
