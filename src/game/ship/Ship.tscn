@@ -85,6 +85,7 @@ shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="RotatoryAxis/Spaceship"]
 current = true
+smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RotatoryAxis/Spaceship"]
 anims/RESET = SubResource( 3 )
