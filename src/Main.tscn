@@ -13,16 +13,16 @@
 [node name="Ship" parent="Planet" instance=ExtResource( 2 )]
 
 [node name="Enemy1" parent="." instance=ExtResource( 3 )]
-position = Vector2( -66, -80 )
-rotation = 2.49224
+position = Vector2( -66, -239 )
+destination = Vector2( -66, -80 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 7, -100 )
-rotation = 3.24169
+position = Vector2( 77, -237 )
+destination = Vector2( 7, -100 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 92, 40 )
-rotation = 5.11846
+position = Vector2( 16, 155 )
+destination = Vector2( 92, 40 )
 
 [node name="Asteroid1" parent="." instance=ExtResource( 4 )]
 position = Vector2( -123, 116 )

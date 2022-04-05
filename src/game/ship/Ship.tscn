@@ -76,6 +76,7 @@ dps = 20.0
 
 [node name="HealthModule" parent="RotatoryAxis/Spaceship/VisualInstance" instance=ExtResource( 3 )]
 position = Vector2( 6, 12 )
+health_points = 6
 override_death = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotatoryAxis/Spaceship"]
