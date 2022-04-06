@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
 
-[node name="Asteroid" type="Area2D"]
+[node name="Asteroid" type="Area2D" groups=["asteroid", "enemy"]]
 script = ExtResource( 2 )
 move_duration = 16
 

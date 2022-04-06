@@ -11,6 +11,7 @@ onready var ship_sprite = $RotatoryAxis/Spaceship/VisualInstance/Sprite
 onready var ship = $RotatoryAxis/Spaceship
 onready var gun = $RotatoryAxis/Spaceship/VisualInstance/Gun
 onready var rotatory_axis = $RotatoryAxis
+onready var bomb_shooter = $RotatoryAxis/Spaceship/VisualInstance/BombShooter
 
 signal inverting(inverted)
 
@@ -46,6 +47,10 @@ func _process(delta):
 		)
 		var target_position_x = clamp(ship.position.x + move_x, min_altitude, max_altitude)
 		ship.position.x = lerp(ship.position.x, target_position_x, delta * v_move_speed)
+	
+	# Shoot bomb
+	if Input.is_action_just_pressed("bomb"):
+		bomb_shooter.shoot()
 
 
 func is_inverted():
