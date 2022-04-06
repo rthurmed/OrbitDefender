@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/game/Planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/logic/SpawnEnemies.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/ship/Ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/logic/SpawnAsteroids.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/shell.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/font/default_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/ui/progress_fg.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/ui/progress_bg.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/ui/portrait-Sheet.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 9 )
+region = Rect2( 34, 0, 17, 25 )
 
 [node name="Main" type="Node2D"]
 
@@ -16,3 +25,98 @@
 [node name="SpawnEnemies" parent="." instance=ExtResource( 2 )]
 
 [node name="SpawnAsteroids" parent="." instance=ExtResource( 4 )]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Shell" type="TextureRect" parent="UI/HUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -65.0
+margin_right = 80.0
+texture = ExtResource( 5 )
+
+[node name="Indicators" type="Control" parent="UI/HUD/Shell"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BombCount" type="Control" parent="UI/HUD/Shell/Indicators"]
+margin_left = 51.0
+margin_top = 20.0
+margin_right = 64.0
+margin_bottom = 39.0
+
+[node name="Label" type="Label" parent="UI/HUD/Shell/Indicators/BombCount"]
+margin_left = 1.0
+margin_top = 8.0
+margin_right = 9.0
+margin_bottom = 24.0
+text = "9"
+
+[node name="BoostCount" type="Control" parent="UI/HUD/Shell/Indicators"]
+margin_left = 68.0
+margin_top = 20.0
+margin_right = 81.0
+margin_bottom = 39.0
+
+[node name="Label" type="Label" parent="UI/HUD/Shell/Indicators/BoostCount"]
+margin_left = 1.0
+margin_top = 8.0
+margin_right = 9.0
+margin_bottom = 24.0
+text = "~~"
+
+[node name="Progress" type="Control" parent="UI/HUD/Shell"]
+margin_right = 126.0
+margin_bottom = 11.0
+
+[node name="Label" type="Label" parent="UI/HUD/Shell/Progress"]
+margin_left = 18.0
+margin_top = 39.0
+margin_right = 40.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 6 )
+text = "~~0%"
+align = 1
+uppercase = true
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/HUD/Shell/Progress"]
+margin_left = 39.0
+margin_top = 43.0
+margin_right = 292.0
+margin_bottom = 63.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/fg = ExtResource( 7 )
+custom_styles/bg = ExtResource( 8 )
+value = 50.0
+percent_visible = false
+
+[node name="Bonus" type="Control" parent="UI/HUD/Shell"]
+margin_right = 30.0
+margin_bottom = 19.0
+
+[node name="Label" type="Label" parent="UI/HUD/Shell/Bonus"]
+margin_left = 87.0
+margin_top = 23.0
+margin_right = 116.0
+margin_bottom = 39.0
+text = "~~0%"
+
+[node name="Portrait" type="Control" parent="UI/HUD/Shell"]
+margin_left = 122.0
+margin_top = 13.0
+margin_right = 139.0
+margin_bottom = 38.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/Shell/Portrait"]
+margin_right = 17.0
+margin_bottom = 25.0
+texture = SubResource( 1 )
