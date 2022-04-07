@@ -7,7 +7,7 @@ export var chance_heal: float = 0.3
 
 onready var timer = $Timer
 
-var FlyingBonusPickup = preload("res://src/bonus/FlyingBonusPickup.tscn")
+var FlyingBonusPickup = preload("res://src/game/bonus/FlyingBonusPickup.tscn")
 
 
 func get_percent():

@@ -9,7 +9,7 @@ export var health_module_path: NodePath
 
 onready var health_module = get_node(health_module_path)
 
-var BonusPickup = preload("res://src/bonus/BonusPickup.tscn")
+var BonusPickup = preload("res://src/game/bonus/BonusPickup.tscn")
 var disabled = false
 
 

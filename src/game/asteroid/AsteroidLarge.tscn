@@ -5,7 +5,7 @@
 [ext_resource path="res://src/game/module/HealthModule.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/module/ImpactAttackModule.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/game/module/AutoMoveModule.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/bonus/BonusDrop.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/bonus/BonusDrop.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.0
