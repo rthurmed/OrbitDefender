@@ -14,6 +14,7 @@ onready var rotatory_axis = $RotatoryAxis
 onready var bomb_shooter = $RotatoryAxis/Spaceship/VisualInstance/BombShooter
 
 signal inverting(inverted)
+signal died
 
 
 # TODO: Implement ammo
@@ -60,4 +61,5 @@ func _on_HealthModule_died():
 	set_process(false)
 	visual_instance.visible = false
 	ship.position.x = 0
+	emit_signal("died")
 	
