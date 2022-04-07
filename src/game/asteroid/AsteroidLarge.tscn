@@ -38,3 +38,4 @@ health_module_path = NodePath("../HealthModule")
 
 [node name="AutoMoveModule" parent="." instance=ExtResource( 5 )]
 node_path = NodePath("..")
+duration = 6.0

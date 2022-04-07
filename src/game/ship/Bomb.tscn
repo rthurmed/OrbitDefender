@@ -145,7 +145,7 @@ script = ExtResource( 3 )
 [node name="AutoMoveModule" parent="." instance=ExtResource( 4 )]
 node_path = NodePath("..")
 move_on_ready = true
-duration = 1
+duration = 0.75
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

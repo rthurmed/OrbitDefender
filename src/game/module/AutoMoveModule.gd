@@ -4,7 +4,7 @@ extends Node2D
 export var node_path: NodePath
 export var destination: Vector2 = Vector2.ZERO
 export var move_on_ready = false
-export var duration = 2
+export var duration: float = 2.0
 export var delay = 0
 
 onready var node: Node2D = get_node(node_path)
@@ -32,6 +32,10 @@ func set_destination(dest):
 		delay
 	)
 	tween.start()
+
+
+func cancel_move():
+	tween.stop_all()
 
 
 func _on_Tween_tween_all_completed():

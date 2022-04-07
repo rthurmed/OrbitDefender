@@ -27,6 +27,7 @@ func _on_Bomb_area_entered(area):
 	if exploded: return
 	if not area.is_in_group(target_group):
 		return
+	auto_move_module.cancel_move()
 	animation.play("explode")
 	exploded = true
 
