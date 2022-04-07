@@ -1,4 +1,5 @@
 extends Node2D
+class_name SpawnEnemies
 
 
 export var distance_to_shoot = 88
@@ -12,10 +13,10 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
-	spawn()
+	spawn(Enemy)
 
 
-func spawn():
+func spawn(enemy_scene):
 	var shoot_angle = deg2rad(rng.randf_range(0, 360))
 	var shoot_pos_noise = rng.randi_range(-distance_noise, distance_noise)
 	var shoot_position = Vector2.RIGHT * (distance_to_shoot + shoot_pos_noise)
@@ -30,7 +31,7 @@ func spawn():
 	start_position = start_position.rotated(shoot_angle + start_angle)
 	start_position = shoot_position + start_position
 	
-	var enemy = Enemy.instance()
+	var enemy = enemy_scene.instance()
 	enemy.global_position = start_position
 	enemy.destination = shoot_position
 	get_tree().current_scene.call_deferred("add_child", enemy)
@@ -38,4 +39,4 @@ func spawn():
 
 # TODO: Move this to some kind of module where i could control the speed
 func _on_Timer_timeout():
-	spawn()
+	spawn(Enemy)

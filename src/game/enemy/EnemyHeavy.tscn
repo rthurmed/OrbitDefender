@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/game/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game/module/AutoMoveModule.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game/enemy/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://src/game/module/HealthModule.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/enemy_heavy.png" type="Texture" id=5]
+[ext_resource path="res://src/game/module/TargettingModule.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/bonus/BonusDrop.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 12.0
+
+[node name="EnemyHeavy" type="Area2D" groups=["enemy", "ship"]]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -4 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="HealthModule" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 14 )
+health_points = 40
+main_node_path = NodePath("..")
+
+[node name="AutoMoveModule" parent="." instance=ExtResource( 2 )]
+node_path = NodePath("..")
+duration = 6.0
+
+[node name="TargettingModule" parent="." instance=ExtResource( 6 )]
+relocate_time = 2
+
+[node name="Gun1" parent="." instance=ExtResource( 1 )]
+position = Vector2( -6, -12 )
+dps = 0.3
+
+[node name="Gun2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6, -12 )
+dps = 0.3
+
+[node name="Gun3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -14 )
+dps = 0.6
+
+[node name="BonusDropBomb" parent="." instance=ExtResource( 7 )]
+drop_type = 1
+chance = 0.4
+health_module_path = NodePath("../HealthModule")
+
+[node name="BonusDropBomb2" parent="." instance=ExtResource( 7 )]
+drop_type = 1
+chance = 0.4
+health_module_path = NodePath("../HealthModule")
+
+[node name="BonusDropHeal" parent="." instance=ExtResource( 7 )]
+chance = 0.6
+health_module_path = NodePath("../HealthModule")
+
+[connection signal="completed" from="AutoMoveModule" to="." method="_on_AutoMoveModule_completed"]

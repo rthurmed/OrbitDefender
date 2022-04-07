@@ -24,7 +24,8 @@ func _ready():
 
 
 func _process(_delta):
-	set_bonus_progress(bonus_generator.get_percent() * 100)
+	if bonus_generator:
+		set_bonus_progress(bonus_generator.get_percent() * 100)
 
 
 func pad_number(x: int):

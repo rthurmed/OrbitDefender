@@ -156,7 +156,7 @@ shape = SubResource( 1 )
 [node name="ImpactZone" type="Area2D" parent="."]
 
 [node name="ImpactAttackModule" parent="ImpactZone" instance=ExtResource( 5 )]
-impact_damage = 6
+impact_damage = 9
 target_group = "enemy"
 area_node_path = NodePath("..")
 collision_node_path = NodePath("../CollisionShape2D")

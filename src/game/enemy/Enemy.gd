@@ -20,7 +20,11 @@ func _ready():
 
 
 func _process(delta):
-	if not attacking or targetting_module.target == null:
+	if (
+		not attacking or
+		targetting_module.target == null or
+		not is_instance_valid(targetting_module.target)
+	):
 		return
 	
 	var diff_pos = targetting_module.target.global_position - global_position
