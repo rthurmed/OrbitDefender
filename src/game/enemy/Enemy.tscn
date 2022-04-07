@@ -34,19 +34,19 @@ relocate_time = 2
 
 [node name="Gun1" parent="." instance=ExtResource( 2 )]
 position = Vector2( -3.5, -8 )
-dps = 0.2
+dps = 0.3
 
 [node name="Gun2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3.5, -8 )
-dps = 0.2
+dps = 0.3
 
 [node name="BonusDropBomb" parent="." instance=ExtResource( 7 )]
 drop_type = 1
-chance = 0.1
+chance = 0.2
 health_module_path = NodePath("../HealthModule")
 
 [node name="BonusDropHeal" parent="." instance=ExtResource( 7 )]
-chance = 0.1
+chance = 0.35
 health_module_path = NodePath("../HealthModule")
 
 [connection signal="completed" from="AutoMoveModule" to="." method="_on_AutoMoveModule_completed"]

@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 
+export var ship_path: NodePath
+
+onready var ship = get_node(ship_path)
 onready var progress_label = $Shell/Progress/Label
 onready var progress_bar = $Shell/Progress/ProgressBar
 onready var bonus_label = $Shell/Bonus/Label
@@ -12,11 +15,10 @@ onready var boost_count_label = $Shell/Indicators/BoostCount/Label
 
 
 func _ready():
-	# Examples
+	ship.connect("updated_bomb_count", self, "_on_Ship_updated_bomb_count")
+	set_bomb_count(ship.bomb_count)
 	set_general_progress(31)
 	set_bonus_progress(56)
-	set_bomb_count(5)
-	set_boost_count(2)
 
 
 func pad_number(x: int):
@@ -39,3 +41,7 @@ func set_bomb_count(count):
 
 func set_boost_count(count):
 	boost_count_label.text = str(count)
+
+
+func _on_Ship_updated_bomb_count(amount):
+	set_bomb_count(amount)

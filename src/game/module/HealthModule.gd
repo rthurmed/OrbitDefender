@@ -44,6 +44,11 @@ func is_alive():
 	return health_points > 0
 
 
+func heal(amount):
+	health_points += amount
+	progress_bar.value = health_points
+
+
 func kill(pos, external = false):
 	if not external:
 		emit_signal("self_killed")

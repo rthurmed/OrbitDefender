@@ -21,6 +21,7 @@
 [node name="SpawnAsteroids" parent="." instance=ExtResource( 4 )]
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 5 )]
+ship_path = NodePath("../Planet/Ship")
 
 [node name="GameStateUI" parent="." instance=ExtResource( 7 )]
 
