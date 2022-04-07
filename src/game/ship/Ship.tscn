@@ -104,3 +104,4 @@ anims/deinvert = SubResource( 4 )
 anims/invert = SubResource( 2 )
 
 [connection signal="inverting" from="." to="RotatoryAxis" method="_on_Ship_inverting"]
+[connection signal="died" from="RotatoryAxis/Spaceship/VisualInstance/HealthModule" to="." method="_on_HealthModule_died"]

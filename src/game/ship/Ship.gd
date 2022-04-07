@@ -16,7 +16,6 @@ onready var bomb_shooter = $RotatoryAxis/Spaceship/VisualInstance/BombShooter
 signal inverting(inverted)
 
 
-# TODO: Implement bombs
 # TODO: Implement ammo
 
 
@@ -55,3 +54,10 @@ func _process(delta):
 
 func is_inverted():
 	return rotatory_axis.target_speed > 0
+
+
+func _on_HealthModule_died():
+	set_process(false)
+	visual_instance.visible = false
+	ship.position.x = 0
+	
