@@ -29,6 +29,7 @@ position = Vector2( -40, 0 )
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 5 )]
 ship_path = NodePath("../Planet/Ship")
+bonus_generator_path = NodePath("../Planet/BonusGenerator")
 
 [node name="GameStateUI" parent="." instance=ExtResource( 7 )]
 

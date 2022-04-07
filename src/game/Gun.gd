@@ -23,6 +23,7 @@ func _process(delta):
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		var collistion_point = raycast.get_collision_point()
+		if not collider: return
 		var health_module = collider.find_node("HealthModule")
 		if health_module:
 			health_module.hit(dps * delta, collistion_point)
