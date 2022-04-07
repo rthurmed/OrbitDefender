@@ -40,6 +40,7 @@ config/icon="res://icon.png"
 
 Pause="*res://src/system/Pause.tscn"
 Util="*res://src/Util.gd"
+Enum="*res://src/Enum.gd"
 
 [display]
 

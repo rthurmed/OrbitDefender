@@ -23,6 +23,7 @@ var has_main_node = false
 
 signal died
 signal hit(amount, hp)
+signal self_killed
 signal last_explosion_peak
 signal completed_death_explosion
 
@@ -43,7 +44,9 @@ func is_alive():
 	return health_points > 0
 
 
-func kill(pos):
+func kill(pos, external = false):
+	if not external:
+		emit_signal("self_killed")
 	hit(health_points, pos)
 
 
