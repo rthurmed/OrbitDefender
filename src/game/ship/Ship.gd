@@ -12,6 +12,7 @@ onready var ship = $RotatoryAxis/Spaceship
 onready var gun = $RotatoryAxis/Spaceship/VisualInstance/Gun
 onready var rotatory_axis = $RotatoryAxis
 onready var bomb_shooter = $RotatoryAxis/Spaceship/VisualInstance/BombShooter
+onready var collision = $RotatoryAxis/Spaceship/CollisionShape2D
 
 signal inverting(inverted)
 signal died
@@ -60,6 +61,8 @@ func is_inverted():
 func _on_HealthModule_died():
 	set_process(false)
 	visual_instance.visible = false
+	gun.shooting = false
+	collision.disabled = true
 	ship.position.x = 0
 	emit_signal("died")
 	

@@ -20,10 +20,10 @@
 
 [node name="SpawnAsteroids" parent="." instance=ExtResource( 4 )]
 
-[node name="WhenDeadGameOver" parent="." instance=ExtResource( 6 )]
-ship_path = NodePath("../Planet/Ship")
-state_ui_path = NodePath("../GameStateUI")
-
 [node name="PlayerHUD" parent="." instance=ExtResource( 5 )]
 
 [node name="GameStateUI" parent="." instance=ExtResource( 7 )]
+
+[node name="WhenDeadGameOver" parent="GameStateUI" instance=ExtResource( 6 )]
+ship_path = NodePath("../../Planet/Ship")
+state_ui_path = NodePath("..")
