@@ -3,10 +3,11 @@ extends CanvasLayer
 
 export var ship_path: NodePath
 export var bonus_generator_path: NodePath
-export var general_progress = 0.0
+export var stages_manager_path: NodePath
 
 onready var ship = get_node(ship_path)
 onready var bonus_generator = get_node(bonus_generator_path)
+onready var stages_manager = get_node(stages_manager_path)
 onready var progress_label = $Shell/Progress/Label
 onready var progress_bar = $Shell/Progress/ProgressBar
 onready var bonus_label = $Shell/Bonus/Label
@@ -23,13 +24,15 @@ func _ready():
 	set_bomb_count(ship.bomb_count)
 	set_turret_count(ship.turret_count)
 	set_bonus_progress(bonus_generator.get_percent() * 100)
-	set_general_progress(general_progress)
+	set_general_progress(stages_manager.get_percent() * 100)
 
 
 func _process(_delta):
 	if bonus_generator:
 		set_bonus_progress(bonus_generator.get_percent() * 100)
-	set_general_progress(general_progress)
+	if stages_manager:
+		set_general_progress(stages_manager.get_percent() * 100)
+	
 
 
 func pad_number(x: int):

@@ -65,6 +65,7 @@ timer_heavy_enemy_path = NodePath("../SpawnEnemiesHeavy/Timer")
 [node name="PlayerHUD" parent="." instance=ExtResource( 5 )]
 ship_path = NodePath("../Ship")
 bonus_generator_path = NodePath("../BonusGenerator")
+stages_manager_path = NodePath("../BattleStagesManager")
 
 [node name="GameStateUI" parent="." instance=ExtResource( 7 )]
 
