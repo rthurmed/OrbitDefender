@@ -68,7 +68,7 @@ health_module_path = NodePath("../HealthModule")
 
 [node name="BonusDropTurret" parent="." instance=ExtResource( 7 )]
 drop_type = 3
-chance = 0.2
+chance = 0.3
 health_module_path = NodePath("../HealthModule")
 
 [connection signal="completed" from="AutoMoveModule" to="." method="_on_AutoMoveModule_completed"]

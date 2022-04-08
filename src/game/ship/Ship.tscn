@@ -86,6 +86,7 @@ script = ExtResource( 8 )
 [node name="Gun" parent="RotatoryAxis/Spaceship/VisualInstance" instance=ExtResource( 4 )]
 position = Vector2( 0, -5.5 )
 dps = 20.0
+target_group = "enemy"
 
 [node name="HealthModule" parent="RotatoryAxis/Spaceship" instance=ExtResource( 3 )]
 position = Vector2( 6, 16 )

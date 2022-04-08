@@ -28,6 +28,7 @@ func _process(_delta):
 	
 	on_sight = (
 		raycast.is_colliding() and
+		raycast.get_collider() != null and
 		raycast.get_collider().name == targetting_module.target.name
 	)
 	
