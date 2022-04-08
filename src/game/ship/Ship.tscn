@@ -82,10 +82,10 @@ script = ExtResource( 8 )
 position = Vector2( 0, -5.5 )
 dps = 20.0
 
-[node name="HealthModule" parent="RotatoryAxis/Spaceship/VisualInstance" instance=ExtResource( 3 )]
-position = Vector2( 6, 12 )
-health_points = 6
-main_node_path = NodePath("../..")
+[node name="HealthModule" parent="RotatoryAxis/Spaceship" instance=ExtResource( 3 )]
+position = Vector2( 6, 16 )
+health_points = 4
+main_node_path = NodePath("..")
 override_death = true
 sound_hit = ExtResource( 7 )
 sound_death = ExtResource( 6 )
@@ -113,4 +113,4 @@ volume_db = -8.0
 
 [connection signal="inverting" from="." to="RotatoryAxis" method="_on_Ship_inverting"]
 [connection signal="area_entered" from="RotatoryAxis/Spaceship" to="." method="_on_Spaceship_area_entered"]
-[connection signal="died" from="RotatoryAxis/Spaceship/VisualInstance/HealthModule" to="." method="_on_HealthModule_died"]
+[connection signal="died" from="RotatoryAxis/Spaceship/HealthModule" to="." method="_on_HealthModule_died"]

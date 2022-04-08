@@ -17,7 +17,7 @@ onready var gun = $RotatoryAxis/Spaceship/VisualInstance/Gun
 onready var rotatory_axis = $RotatoryAxis
 onready var bomb_shooter = $RotatoryAxis/Spaceship/VisualInstance/BombShooter
 onready var collision = $RotatoryAxis/Spaceship/CollisionShape2D
-onready var health_module = $RotatoryAxis/Spaceship/VisualInstance/HealthModule
+onready var health_module = $RotatoryAxis/Spaceship/HealthModule
 onready var audio_bonus_picked = $Audio/BonusPicked
 
 signal inverting(inverted)

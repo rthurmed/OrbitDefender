@@ -15,4 +15,5 @@ func _ready():
 
 
 func _on_AutoMoveModule_completed():
-	bonus_pickup.animation.play("dropped")
+	if is_instance_valid(bonus_pickup):
+		bonus_pickup.animation.play("dropped")

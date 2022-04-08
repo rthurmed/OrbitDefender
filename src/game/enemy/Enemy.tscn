@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/enemy1.png" type="Texture" id=1]
 [ext_resource path="res://src/game/Gun.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/game/module/AutoMoveModule.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/game/module/TargettingModule.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/game/bonus/BonusDrop.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game/module/AimFollowModule.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
@@ -31,6 +32,11 @@ node_path = NodePath("..")
 
 [node name="TargettingModule" parent="." instance=ExtResource( 6 )]
 relocate_time = 2
+
+[node name="AimFollowModule" parent="." instance=ExtResource( 8 )]
+main_node_path = NodePath("..")
+targetting_module_path = NodePath("../TargettingModule")
+disabled = true
 
 [node name="Gun1" parent="." instance=ExtResource( 2 )]
 position = Vector2( -3.5, -8 )
