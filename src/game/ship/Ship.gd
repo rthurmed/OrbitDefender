@@ -92,7 +92,7 @@ func _on_HealthModule_died():
 	set_process(false)
 	visual_instance.visible = false
 	gun.shooting = false
-	collision.disabled = true
+	collision.set_deferred("disabled", true)
 	ship.position.x = 0
 	emit_signal("died")
 

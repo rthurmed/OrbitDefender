@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/game/Planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/logic/SpawnEnemies.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/game/enemy/EnemyHeavy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/game/asteroid/Asteroid.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/game/asteroid/AsteroidLarge.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/game/logic/BattleStagesManager.tscn" type="PackedScene" id=13]
 
 [node name="Main" type="Node2D"]
 
@@ -27,29 +28,12 @@ position = Vector2( -40, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Planet"]
 
-[node name="SpawnEnemies" parent="." instance=ExtResource( 2 )]
-enemy_scene = ExtResource( 9 )
-timer_path = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="SpawnEnemies"]
-wait_time = 4.0
-autostart = true
-
-[node name="SpawnEnemiesHeavy" parent="." instance=ExtResource( 2 )]
-enemy_scene = ExtResource( 10 )
-timer_path = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="SpawnEnemiesHeavy"]
-wait_time = 20.0
-autostart = true
-
 [node name="SpawnAsteroids" parent="." instance=ExtResource( 4 )]
 enemy_scene = ExtResource( 11 )
 timer_path = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="SpawnAsteroids"]
 wait_time = 8.0
-autostart = true
 
 [node name="SpawnAsteroidsLarge" parent="." instance=ExtResource( 4 )]
 enemy_scene = ExtResource( 12 )
@@ -57,7 +41,26 @@ timer_path = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="SpawnAsteroidsLarge"]
 wait_time = 12.0
-autostart = true
+
+[node name="SpawnEnemies" parent="." instance=ExtResource( 2 )]
+enemy_scene = ExtResource( 9 )
+timer_path = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="SpawnEnemies"]
+wait_time = 4.0
+
+[node name="SpawnEnemiesHeavy" parent="." instance=ExtResource( 2 )]
+enemy_scene = ExtResource( 10 )
+timer_path = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="SpawnEnemiesHeavy"]
+wait_time = 20.0
+
+[node name="BattleStagesManager" parent="." instance=ExtResource( 13 )]
+timer_asteroid_path = NodePath("../SpawnAsteroids/Timer")
+timer_large_asteroid_path = NodePath("../SpawnAsteroidsLarge/Timer")
+timer_enemy_path = NodePath("../SpawnEnemies/Timer")
+timer_heavy_enemy_path = NodePath("../SpawnEnemiesHeavy/Timer")
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 5 )]
 ship_path = NodePath("../Ship")
