@@ -1,19 +1,9 @@
-extends Node2D
+extends Spawner
 
 
 export var distance_noise = 16
 export var distance_start = 192
 export var diverge_range = 30
-
-var Asteroid = preload("res://src/game/asteroid/Asteroid.tscn")
-var AsteroidLarge = preload("res://src/game/asteroid/AsteroidLarge.tscn")
-var asteroid_types = [Asteroid, AsteroidLarge]
-var rng = RandomNumberGenerator.new()
-
-
-func _ready():
-	rng.randomize()
-	spawn()
 
 
 func spawn():
@@ -29,19 +19,8 @@ func spawn():
 	end_position = end_position.rotated(end_angle)
 	end_position = to_global(end_position)
 	
-	var asteroid
-	
-	# Easier to be a small asteroid
-	if rng.randf() > 0.3:
-		asteroid = Asteroid.instance()
-	else:
-		asteroid = AsteroidLarge.instance()
-	
+	var asteroid = enemy_scene.instance()
 	asteroid.global_position = start_position
 	asteroid.destination = end_position
 	
 	get_tree().current_scene.call_deferred("add_child", asteroid)
-
-
-func _on_Timer_timeout():
-	spawn()
