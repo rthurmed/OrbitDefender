@@ -20,6 +20,7 @@ var ExplosionVfx = preload("res://src/vfx/Explosion.tscn")
 var can_show_explosion = true
 var has_set_last_explosion = false
 var has_main_node = false
+var max_health = 0
 
 signal died
 signal hit(amount, hp)
@@ -29,7 +30,8 @@ signal completed_death_explosion
 
 
 func _ready():
-	progress_bar.max_value = health_points
+	max_health = health_points
+	progress_bar.max_value = max_health
 	progress_bar.value = health_points
 	has_main_node = main_node != null
 	audio_hit.set_stream(sound_hit)
@@ -45,8 +47,8 @@ func is_alive():
 
 
 func heal(amount):
-	# FIXME: is allowing to have more than max
 	health_points += amount
+	health_points = clamp(health_points, 0, max_health)
 	progress_bar.value = health_points
 
 
