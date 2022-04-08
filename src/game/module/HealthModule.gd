@@ -45,6 +45,7 @@ func is_alive():
 
 
 func heal(amount):
+	# FIXME: is allowing to have more than max
 	health_points += amount
 	progress_bar.value = health_points
 

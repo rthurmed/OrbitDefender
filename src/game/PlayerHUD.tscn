@@ -41,18 +41,18 @@ margin_right = 9.0
 margin_bottom = 24.0
 text = "9"
 
-[node name="BoostCount" type="Control" parent="Shell/Indicators"]
+[node name="TurretCount" type="Control" parent="Shell/Indicators"]
 margin_left = 68.0
 margin_top = 20.0
 margin_right = 81.0
 margin_bottom = 39.0
 
-[node name="Label" type="Label" parent="Shell/Indicators/BoostCount"]
+[node name="Label" type="Label" parent="Shell/Indicators/TurretCount"]
 margin_left = 1.0
 margin_top = 8.0
 margin_right = 9.0
 margin_bottom = 24.0
-text = "~~"
+text = "9"
 
 [node name="Progress" type="Control" parent="Shell"]
 margin_right = 126.0

@@ -3,11 +3,13 @@ extends Node2D
 
 const BONUS_HEAL_AMOUNT = 1
 const BONUS_BOMB_AMOUNT = 1
+const BONUS_TURRET_AMOUNT = 1
 
 export var min_altitude = 32
 export var max_altitude = 96
 export var v_move_speed = 48
 export var initial_bomb_count = 3
+export var initial_turret_count = 2
 
 onready var animation = $RotatoryAxis/Spaceship/AnimationPlayer
 onready var visual_instance = $RotatoryAxis/Spaceship/VisualInstance
@@ -16,6 +18,7 @@ onready var ship = $RotatoryAxis/Spaceship
 onready var gun = $RotatoryAxis/Spaceship/VisualInstance/Gun
 onready var rotatory_axis = $RotatoryAxis
 onready var bomb_shooter = $RotatoryAxis/Spaceship/VisualInstance/BombShooter
+onready var turret_deployer = $RotatoryAxis/Spaceship/VisualInstance/TurretDeployer
 onready var collision = $RotatoryAxis/Spaceship/CollisionShape2D
 onready var health_module = $RotatoryAxis/Spaceship/HealthModule
 onready var audio_bonus_picked = $Audio/BonusPicked
@@ -23,8 +26,10 @@ onready var audio_bonus_picked = $Audio/BonusPicked
 signal inverting(inverted)
 signal died
 signal updated_bomb_count(amount)
+signal updated_turret_count(amount)
 
 var bomb_count = initial_bomb_count
+var turret_count = initial_turret_count
 
 
 func _process(delta):
@@ -60,6 +65,11 @@ func _process(delta):
 		bomb_shooter.shoot()
 		bomb_count -= 1
 		emit_signal("updated_bomb_count", bomb_count)
+	
+	if Input.is_action_just_pressed("deploy_turret") and turret_count > 0:
+		turret_deployer.deploy()
+		turret_count -= 1
+		emit_signal("updated_turret_count", turret_count)
 
 
 func is_inverted():
@@ -73,6 +83,9 @@ func apply_bonus(bonus_type: int):
 	elif bonus_type == Enum.BonusType.BOMB:
 		bomb_count += BONUS_BOMB_AMOUNT
 		emit_signal("updated_bomb_count", bomb_count)
+	elif bonus_type == Enum.BonusType.TURRET:
+		turret_count += BONUS_TURRET_AMOUNT
+		emit_signal("updated_turret_count", turret_count)
 
 
 func _on_HealthModule_died():
