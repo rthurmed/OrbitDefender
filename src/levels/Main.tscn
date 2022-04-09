@@ -24,9 +24,9 @@ position = Vector2( -40, 0 )
 
 [node name="Ship" parent="." instance=ExtResource( 3 )]
 
-[node name="Planet" parent="." instance=ExtResource( 1 )]
+[node name="FixedCamera2D" type="Camera2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Planet"]
+[node name="Planet" parent="." instance=ExtResource( 1 )]
 
 [node name="SpawnAsteroids" parent="." instance=ExtResource( 4 )]
 enemy_scene = ExtResource( 11 )
@@ -69,6 +69,11 @@ stages_manager_path = NodePath("../BattleStagesManager")
 
 [node name="GameStateUI" parent="." instance=ExtResource( 7 )]
 
-[node name="WhenDeadGameOver" parent="GameStateUI" instance=ExtResource( 6 )]
-ship_path = NodePath("../../Ship")
+[node name="WhenShipDeadGameOver" parent="GameStateUI" instance=ExtResource( 6 )]
+target_node_path = NodePath("../../Ship")
 state_ui_path = NodePath("..")
+
+[node name="WhenPlanetDeadGameOver" parent="GameStateUI" instance=ExtResource( 6 )]
+target_node_path = NodePath("../../Planet")
+state_ui_path = NodePath("..")
+message = "the base was destroyed!"
