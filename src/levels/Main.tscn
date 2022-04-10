@@ -73,8 +73,10 @@ stages_manager_path = NodePath("../BattleStagesManager")
 [node name="WhenShipDeadGameOver" parent="GameStateUI" instance=ExtResource( 6 )]
 target_node_path = NodePath("../../Ship")
 state_ui_path = NodePath("..")
+stage_manager_path = NodePath("../../BattleStagesManager")
 
 [node name="WhenPlanetDeadGameOver" parent="GameStateUI" instance=ExtResource( 6 )]
 target_node_path = NodePath("../../Planet")
 state_ui_path = NodePath("..")
+stage_manager_path = NodePath("../../BattleStagesManager")
 message = "the base was destroyed!"
