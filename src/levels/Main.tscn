@@ -31,6 +31,7 @@ position = Vector2( -40, 0 )
 [node name="SpawnAsteroids" parent="." instance=ExtResource( 4 )]
 enemy_scene = ExtResource( 11 )
 timer_path = NodePath("Timer")
+diverge_range = 45
 
 [node name="Timer" type="Timer" parent="SpawnAsteroids"]
 wait_time = 8.0

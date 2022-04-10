@@ -29,22 +29,29 @@ var stages = [
 	{
 		'asteroid': 4,
 		'large_asteroid': 12,
-		'enemy': 4,
+		'enemy': 3,
 		'heavy_enemy': 20
 	},
 	# STAGE #3
 	{
-		'asteroid': 4,
+		'asteroid': 2,
 		'large_asteroid': 12,
 		'enemy': 3,
 		'heavy_enemy': 20
 	},
 	# STAGE #4
 	{
+		'asteroid': 2,
+		'large_asteroid': 8,
+		'enemy': 4,
+		'heavy_enemy': 10
+	},
+	# STAGE #5
+	{
 		'asteroid': 8,
 		'large_asteroid': 12,
 		'enemy': 2,
-		'heavy_enemy': 10
+		'heavy_enemy': 6
 	}
 ]
 var stages_count = len(stages)
@@ -56,8 +63,16 @@ signal ended
 func _ready():
 	stage_run.wait_time = duration / stages_count
 	if autostart:
-		stage_run.start()
-		advance_stage()
+		start()
+
+
+func start():
+	stage_run.start()
+	advance_stage()
+
+
+func stop():
+	stage_run.stop()
 
 
 func get_percent():
@@ -67,7 +82,7 @@ func get_percent():
 func advance_stage():
 	stages_passed += 1
 	
-	if stages_passed > stages_count:
+	if stages_passed >= stages_count:
 		emit_signal("ended")
 		return
 	
