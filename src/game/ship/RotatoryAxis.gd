@@ -5,6 +5,7 @@ const DEFAULT_SPEED = deg2rad(-32)
 
 export var accel = 3
 export var turn_speed = 0.5
+export var enabled = false
 
 var speed = DEFAULT_SPEED
 var target_speed = DEFAULT_SPEED
@@ -13,6 +14,8 @@ signal full360
 
 
 func _process(delta):
+	if not enabled: return
+	
 	speed = lerp_angle(speed, target_speed, delta * turn_speed)
 	rotation = lerp_angle(rotation, rotation + speed, delta * accel)
 	

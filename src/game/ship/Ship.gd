@@ -32,6 +32,10 @@ var bomb_count = initial_bomb_count
 var turret_count = initial_turret_count
 
 
+func _ready():
+	animation.play("intro")
+
+
 func _process(delta):
 	# Shooting logic
 	if Input.is_action_just_pressed("shoot"):
