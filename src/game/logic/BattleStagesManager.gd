@@ -103,3 +103,10 @@ func advance_stage():
 
 func _on_StageRun_timeout():
 	advance_stage()
+
+
+func _on_BattleStagesManager_ended():
+	timer_asteroid.stop()
+	timer_large_asteroid.stop()
+	timer_enemy.stop()
+	timer_heavy_enemy.stop()

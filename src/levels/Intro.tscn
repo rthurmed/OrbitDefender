@@ -542,7 +542,7 @@ texture = ExtResource( 1 )
 
 [node name="Enemy" type="Sprite" parent="Static"]
 position = Vector2( -195, 192 )
-rotation = 0.546612
+rotation = 0.546613
 texture = ExtResource( 6 )
 
 [node name="Gun1" parent="Static/Enemy" instance=ExtResource( 7 )]
