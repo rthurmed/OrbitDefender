@@ -24,4 +24,4 @@ initial_velocity = 600.0
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 2 )
-volume_db = -12.0
+volume_db = -20.0
