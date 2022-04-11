@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/ui/font/ui_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/ui/font/Last Spaceship.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/system/Pause.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 2 )
 
 [node name="Pause" type="CanvasLayer"]
 pause_mode = 2
@@ -13,51 +25,25 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.666667 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Label" type="Label" parent="UI"]
-anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -66.0
-margin_top = -45.3669
-margin_right = 66.0
-margin_bottom = -13.3669
-custom_fonts/font = ExtResource( 1 )
-text = "PAUSE"
+margin_top = -63.0
+margin_bottom = -39.0
+custom_fonts/font = SubResource( 2 )
+text = "PAUSED"
 align = 1
+uppercase = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
-anchor_left = 0.5
+[node name="Instruction" type="Label" parent="UI"]
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -66.0
-margin_top = -9.0
-margin_right = 66.0
-margin_bottom = 35.0
-
-[node name="Continue" type="Button" parent="UI/VBoxContainer"]
-margin_right = 132.0
-margin_bottom = 30.0
-custom_fonts/font = ExtResource( 1 )
-text = "CONTINUE"
-flat = true
-
-[node name="Restart" type="Button" parent="UI/VBoxContainer"]
-margin_top = 34.0
-margin_right = 132.0
-margin_bottom = 64.0
-custom_fonts/font = ExtResource( 1 )
-text = "RESTART"
-flat = true
-
-[connection signal="pressed" from="UI/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="UI/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+margin_top = -26.0
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "ESC: continue
+R: Restart"
+align = 1
+uppercase = true
