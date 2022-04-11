@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/ui/font/default_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/ui/progress_fg.tres" type="StyleBox" id=2]
@@ -6,10 +6,6 @@
 [ext_resource path="res://assets/ui/shell.png" type="Texture" id=4]
 [ext_resource path="res://src/game/PlayerHUD.gd" type="Script" id=5]
 [ext_resource path="res://assets/ui/portrait-Sheet.png" type="Texture" id=9]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 9 )
-region = Rect2( 34, 0, 17, 25 )
 
 [node name="PlayerHUD" type="CanvasLayer"]
 script = ExtResource( 5 )
@@ -39,7 +35,6 @@ margin_left = 1.0
 margin_top = 8.0
 margin_right = 9.0
 margin_bottom = 24.0
-text = "9"
 
 [node name="TurretCount" type="Control" parent="Shell/Indicators"]
 margin_left = 68.0
@@ -52,7 +47,6 @@ margin_left = 1.0
 margin_top = 8.0
 margin_right = 9.0
 margin_bottom = 24.0
-text = "9"
 
 [node name="Progress" type="Control" parent="Shell"]
 margin_right = 126.0
@@ -78,7 +72,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
 custom_styles/fg = ExtResource( 2 )
 custom_styles/bg = ExtResource( 3 )
-value = 50.0
 percent_visible = false
 
 [node name="Bonus" type="Control" parent="Shell"]
@@ -98,7 +91,9 @@ margin_top = 13.0
 margin_right = 139.0
 margin_bottom = 38.0
 
-[node name="TextureRect" type="TextureRect" parent="Shell/Portrait"]
-margin_right = 17.0
-margin_bottom = 25.0
-texture = SubResource( 1 )
+[node name="Sprite" type="Sprite" parent="Shell/Portrait"]
+position = Vector2( 8.5, 12.5 )
+texture = ExtResource( 9 )
+hframes = 4
+vframes = 2
+frame = 4

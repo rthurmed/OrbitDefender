@@ -4,10 +4,11 @@ extends CanvasLayer
 export var ship_path: NodePath
 export var bonus_generator_path: NodePath
 export var stages_manager_path: NodePath
+export var faked = false
 
-onready var ship = get_node(ship_path)
-onready var bonus_generator = get_node(bonus_generator_path)
-onready var stages_manager = get_node(stages_manager_path)
+onready var ship = get_node(ship_path) if ship_path else null
+onready var bonus_generator = get_node(bonus_generator_path) if bonus_generator_path else null
+onready var stages_manager = get_node(stages_manager_path) if stages_manager_path else null
 onready var progress_label = $Shell/Progress/Label
 onready var progress_bar = $Shell/Progress/ProgressBar
 onready var bonus_label = $Shell/Bonus/Label
@@ -19,6 +20,9 @@ onready var turret_count_label = $Shell/Indicators/TurretCount/Label
 
 
 func _ready():
+	if faked:
+		set_process(false)
+		return
 	ship.connect("updated_bomb_count", self, "_on_Ship_updated_bomb_count")
 	ship.connect("updated_turret_count", self, "_on_Ship_updated_turret_count")
 	set_bomb_count(ship.bomb_count)

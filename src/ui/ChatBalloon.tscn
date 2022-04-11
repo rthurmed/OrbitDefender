@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/ui/font/text_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/ui/chat-ui_right.tres" type="Texture" id=2]
+[ext_resource path="res://src/ui/ChatBalloon.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/portrait-Sheet.png" type="Texture" id=4]
+
+[node name="ChatBalloon" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="Message" type="Label" parent="TextureRect"]
+margin_left = 18.0
+margin_top = 13.0
+margin_right = 82.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 1 )
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+autowrap = true
+uppercase = true
+
+[node name="Name" type="Label" parent="TextureRect"]
+margin_left = 75.0
+margin_top = 44.0
+margin_right = 107.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 1 )
+text = "aaaaaaaa"
+uppercase = true
+
+[node name="Portrait" type="Sprite" parent="TextureRect"]
+position = Vector2( 97.5, 17.5 )
+texture = ExtResource( 4 )
+hframes = 4
+vframes = 2
