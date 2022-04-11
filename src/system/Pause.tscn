@@ -43,7 +43,7 @@ anchor_bottom = 0.5
 margin_top = -26.0
 margin_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
-text = "ESC: continue
+text = "ESC/P: continue
 R: Restart"
 align = 1
 uppercase = true
