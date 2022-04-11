@@ -60,7 +60,6 @@ timer_path = NodePath("Timer")
 wait_time = 20.0
 
 [node name="BattleStagesManager" parent="." instance=ExtResource( 13 )]
-duration = 30
 timer_asteroid_path = NodePath("../SpawnAsteroids/Timer")
 timer_large_asteroid_path = NodePath("../SpawnAsteroidsLarge/Timer")
 timer_enemy_path = NodePath("../SpawnEnemies/Timer")
