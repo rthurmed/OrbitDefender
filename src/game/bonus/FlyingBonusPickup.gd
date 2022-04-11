@@ -10,7 +10,7 @@ onready var bonus_pickup = $BonusPickup
 
 func _ready():
 	auto_move_module.set_destination(destination)
-	bonus_pickup.type = type
+	bonus_pickup.set_type(type)
 	bonus_pickup.animation.stop()
 
 

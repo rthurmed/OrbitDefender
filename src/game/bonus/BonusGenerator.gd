@@ -19,14 +19,14 @@ func spawn():
 	var inst = FlyingBonusPickup.instance()
 	inst.destination = destination
 	
-	var type_value = randf()
-	if type_value < chance_heal:
-		inst.type = Enum.BonusType.HEAL
-	elif type_value < chance_heal + chance_bomb:
-		inst.type = Enum.BonusType.BOMB
-	else:
-		inst.type = Enum.BonusType.TURRET
+	var chance_result = randf()
+	var type = Enum.BonusType.TURRET
+	if chance_result < chance_heal:
+		type = Enum.BonusType.HEAL
+	elif chance_result < (chance_heal + chance_bomb):
+		type = Enum.BonusType.BOMB
 	
+	inst.type = type
 	get_tree().current_scene.call_deferred("add_child", inst)
 
 

@@ -12,5 +12,10 @@ func _ready():
 	animation.play("dropped")
 
 
+func set_type(t):
+	type = t
+	sprite.frame = type
+
+
 func despawn():
 	queue_free()
